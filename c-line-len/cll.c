@@ -14,7 +14,7 @@ int main(int argc,char** argv)
     {
         strnum++;
     }
-   unsigned long max = 0;
+   unsigned long long max = 0;
    int pt = 0;
    while(strnum[pt])
    {
@@ -39,11 +39,11 @@ int main(int argc,char** argv)
         return -1;
    }
    /* the followings should be printed into stdout */
-   unsigned long cnt = 1;
+   unsigned long long cnt = 1;
    int flag = 0;
    while(1)
    {
-        unsigned long tlen = 0;
+        unsigned long long tlen = 0;
         char ch;
         int overflow = 0;
         while(1)
