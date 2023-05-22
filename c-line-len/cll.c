@@ -5,7 +5,8 @@ int main(int argc,char** argv)
 {
    if(argc!=3)
    {
-        fprintf(stderr,"cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
+        fprintf(stderr,\
+        "cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
         return -1;
    }
    char* filename = argv[1];
@@ -21,13 +22,15 @@ int main(int argc,char** argv)
         if(!(strnum[pt]>='0'&&strnum[pt]<='9'))
         {
             fprintf(stderr,"error number\n");
-            fprintf(stderr,"cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
+            fprintf(stderr,\
+            "cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
             return -1;
         }
         max = max * 10 + strnum[pt] - '0';
         if(max >= MAXBUF)
         {
-            fprintf(stderr,"The argument you put in will exceed the MAX_BUFFER_SIZE\n");
+            fprintf(stderr,\
+            "The argument you put in will exceed the MAX_BUFFER_SIZE\n");
             return -1;
         }
         pt++;
@@ -35,7 +38,8 @@ int main(int argc,char** argv)
    if(freopen(filename,"r",stdin)==NULL)
    {
         fprintf(stderr,"cannot open the file\n");
-        fprintf(stderr,"cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
+        fprintf(stderr,\
+        "cll for check-line-length\nusage: cll <filename> <max chars perline>\n");
         return -1;
    }
    /* the followings should be printed into stdout */
@@ -64,9 +68,9 @@ int main(int argc,char** argv)
         }
         if(overflow)
         {
-            printf("a line has exceeded %lu chars\n",(unsigned long)MAXBUF);
+            printf("a line has exceeded %llu chars\n",(unsigned long long)MAXBUF);
             printf("This is the current MAX_BUFFER_SIZE\n");
-            printf("at line %lu\n",cnt);
+            printf("at line %llu\n",cnt);
             int ii;
             for(ii=0;ii<MAXBUF;ii++)
             {
@@ -86,10 +90,10 @@ int main(int argc,char** argv)
         {
             if(tlen > max)
             {
-                printf("a line has exceeded %lu chars\n",max);
-                printf("at line %lu\n",cnt);
+                printf("a line has exceeded %llu chars\n",max);
+                printf("at line %llu\n",cnt);
                 printf("%s\n",temp);
-                printf("this line has %lu chars\n\n\n",tlen);
+                printf("this line has %llu chars\n\n\n",tlen);
                 flag = 1;
             }
         }
@@ -109,7 +113,7 @@ int main(int argc,char** argv)
    }
    if(!flag)
    {
-       printf("not exceeded, correct\n");
+       printf("not exceeding %llu, correct\n",max);
    }
    return flag;
 }
